@@ -109,3 +109,24 @@ h2 {
     color: #ff0000;
     font-size: 30px;
 }
+
+#maisvendido {
+    margin-top: 50px;
+    font-size: 50px;
+    text-align: center;
+}
+
+.maisvendido {
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: auto auto auto auto auto;
+}
+
+.maisvendido1, .maisvendido2, .maisvendido3, .maisvendido4, .maisvendido5, .maisvendido6{
+    grid-row-start: 1;
+}
+
+.comprar {
+    height: 50px;
+    width: 100%;
+}
