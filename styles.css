@@ -1,0 +1,111 @@
+body {
+    margin: 0;
+    border: 0;
+}
+
+.header {
+    display: flex;
+    background-color: rgb(0, 104, 26);
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+}
+
+
+
+h1 {
+    margin: 0;
+    margin-left: 50px;
+    font-size: 50px;
+    color: white;
+}
+
+
+p {
+    margin: 0;
+}
+
+#pesquisa {
+    border-radius: 30px;
+    height: 40%;
+    width: 40%;
+}
+
+#user {
+    margin-right: 30px;
+    height: 50px;
+}
+
+#cart {
+    margin-right: 200px;
+    height: 50px;
+
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    height: 60px;
+    background-color: black;
+}
+
+.link {
+    color: white;
+    font-size: 30px;
+    margin-left: 20px;
+}
+
+.produtos {
+    margin-left: 10%;
+    width: 80%;
+    margin-top: 2%;
+    border-radius: 50px;
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: auto auto auto auto auto;
+    background-color: #2c6f00;
+}
+
+h2 {
+    margin-left: 10px;
+    color: white;
+    grid-column-start: 1;
+    grid-column-end: 5;
+}
+
+.noimage {
+    margin-left: 6%;
+    margin-top: 20px;
+    height: 250px;
+}
+
+.prod1, .prod2, .prod3, .prod4, .prod5, .prod6{
+    grid-row-start: 2;
+}
+
+.estrela {
+    height: 30px;
+}
+
+.prod {
+    margin-bottom: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: rgb(255, 255, 255);
+}
+
+.preço {
+    display: flex
+}
+
+.preco {
+    color: #008a00;
+    font-size: 50px;
+}
+
+.preco2 {
+    text-decoration: line-through;
+    margin-left: 10px;
+    color: #ff0000;
+    font-size: 30px;
+}
