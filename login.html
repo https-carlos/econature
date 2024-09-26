@@ -26,7 +26,7 @@
                         
                         <a href="registro.html">Registre-se aqui</a>
                     </div>
-                    <a href="./index.html"><button type="submit" class="botao">Entrar</button></a>
+                    <a href="./index.html"><button type="submit" class="botao" id="botaoxd">Entrar</button></a>
                 </form>
                 <audio id="click-sound" src="AUD-20240920-WA0043.mp3" preload="auto"></audio>
             </div>
@@ -44,6 +44,12 @@
                 document.getElementById('login-form').submit();
             };
         }
+
+    const input = document.getElementById('botaoxd');
+
+    input.addEventListener('click', () => {
+        window.location.href = './index.html';
+    });
     </script>
 </body>
 </html>
