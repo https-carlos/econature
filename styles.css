@@ -74,9 +74,9 @@ h2 {
 }
 
 .noimage {
-    margin-left: 6%;
-    margin-top: 20px;
-    height: 250px;
+    display: block;
+    margin: 0 auto;
+    width: 90%;
 }
 
 .prod1, .prod2, .prod3, .prod4, .prod5, .prod6{
@@ -91,6 +91,7 @@ h2 {
     margin-bottom: 50px;
     margin-left: 10px;
     margin-right: 10px;
+    border-top: 10px solid white;
     background-color: rgb(255, 255, 255);
 }
 
