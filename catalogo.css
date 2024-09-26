@@ -4,7 +4,7 @@ body {
 
 .catalogo {
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 20% auto;
 }
 
 #problemas {
@@ -32,4 +32,8 @@ h2 {
 
 .prod1, .prod2, .prod3, .prod4, .prod5, .prod6{
     grid-row-start: 1;
+}
+
+.intervalo {
+    width: 100px;
 }
