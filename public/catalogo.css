@@ -1,0 +1,39 @@
+body {
+    height: 100vh;
+}
+
+.catalogo {
+    display: grid;
+    grid-template-columns: 20% auto;
+}
+
+#problemas {
+    margin-top: 50px;
+}
+
+#logo {
+    text-decoration: none;
+}
+
+.filtro {
+    background-color: rgb(204, 204, 204);
+    min-height: 83vh;
+
+}
+
+h2 {
+    color: black;
+}
+
+.resultados {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+}
+
+.prod1, .prod2, .prod3, .prod4, .prod5, .prod6{
+    grid-row-start: 1;
+}
+
+.intervalo {
+    width: 100px;
+}

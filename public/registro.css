@@ -1,0 +1,214 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f4f3;
+}
+
+
+.tela {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100vw;
+    height: 100vh;
+}
+
+
+.lado-esquerdo {
+    background-image: url('https://img.freepik.com/fotos-gratis/um-monte-de-hortela-fresca-em-maos-femininas_158595-6938.jpg?w=826&t=st=1727305271~exp=1727305871~hmac=10e38932141090a18ee248c1b19a13ac2b08bc3fdc75240e526144be5d3b36d9');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.lado-esquerdo h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.lado-esquerdo span {
+    color: #00A64F;
+}
+
+.lado-esquerdo p {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+
+.lado-direito {
+    background-color: rgba(255, 255, 255, 0.9);
+    background-image: url('https://img.freepik.com/fotos-premium/fotografia-completa-de-folhas-verdes-de-hortela_1048944-9527277.jpg?w=740');
+    background-size: cover;
+    background-blend-mode: lighten;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.container-registro {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+
+.lado-direito h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 30px; 
+    text-align: center;
+}
+
+.lado-direito span {
+    color: #00A64F;
+    font-weight: bold;
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+
+.grupo-input {
+    margin-bottom: 20px;
+    width: 100%; 
+}
+
+input {
+    width: 100%;
+    max-width: 350px;
+    font-weight: bold;
+    padding: 15px; 
+    font-size: 1rem;
+    border: 2px solid #00A64F;
+    border-radius: 5px; 
+    transition: border 0.3s, background-color 0.3s;
+}
+
+input:focus {
+    border-color: #008B3F;
+    background-color: #f0f8f5;
+    outline: none;
+}
+
+
+.acoes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 350px;
+    margin-top: 20px;
+}
+
+.acoes p {
+    font-size: 1rem;
+    color: #333;
+}
+
+.acoes a {
+    color: #00A64F;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+    margin-left: 5px;
+}
+
+.acoes a:hover {
+    color: #008B3F;
+}
+
+
+.botao {
+    font-weight: bold;
+    padding: 15px 50px; 
+    font-size: 1.1rem;
+    color: white;
+    background-color: #00A64F;
+    border: none;
+    border-radius: 30px; 
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-top: 20px; 
+    width: auto;
+}
+
+.botao:hover {
+    background-color: #008B3F;
+    transform: scale(1.05);
+}
+
+.botao:active {
+    transform: scale(1);
+}
+
+@media (max-width: 768px) {
+    .tela {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+
+    .lado-esquerdo, 
+    .lado-direito {
+        padding: 20px;
+        height: auto;
+    }
+
+    .lado-esquerdo h1 {
+        font-size: 2rem;
+    }
+
+    .lado-esquerdo p {
+        font-size: 1rem;
+    }
+
+    .lado-direito {
+        background: none; 
+        background-color: rgba(255, 255, 255, 0.9);
+    }
+
+    .container-registro {
+        max-width: 100%;
+        padding: 15px;
+    }
+
+    input {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    .botao {
+        padding: 10px 40px;
+        font-size: 1rem;
+    }
+
+    .acoes p {
+        font-size: 0.9rem;
+    }
+
+    .acoes a {
+        font-size: 0.9rem;
+    }
+}
