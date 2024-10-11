@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="icon" type="image/svg+xml" href="/flor.svg">
+</head>
+<body>
+    <div class="tela">
+        <div class="lado-esquerdo">
+            <h1>Bem-vindo <br> à loja <br><span>ECONATURE</span></h1>
+            <p>Entre com sua conta para fazer suas compras e renovar a sua saúde</p>
+            <% if (mensagemErro) { %>
+                <p style="color: red;"><%= mensagemErro %></p>
+            <% } %>
+        </div>
+        <div class="lado-direito">
+            <div class="container-login">
+                <h2>FAÇA <span>LOGIN</span></h2>
+                <form id="login-form" action="/inicial" method="post">
+                    <div class="grupo-input">
+                        <input type="email" name="email" id="usuario" placeholder="Email">
+                    </div>
+                    <div class="grupo-input">
+                        <input type="password" name="senha" id="senha" placeholder="Senha">
+                    </div>
+                    <div class="acoes">
+                        
+                        <a href="/registro">Registre-se aqui</a>
+                    </div>
+                    <button type="submit" class="botao" id="botaoxd">Entrar</button>
+                </form>
+                <audio id="click-sound" src="AUD-20240920-WA0043.mp3" preload="auto"></audio>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function playSound(event) {
+            event.preventDefault(); 
+            const audio = document.getElementById('click-sound');
+            audio.play();
+
+            
+            audio.onended = function() {
+                document.getElementById('login-form').submit();
+            };
+        }
+
+
+
+    </script>
+</body>
+</html>
