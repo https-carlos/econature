@@ -6,7 +6,7 @@ const sequelize = require('./Config/database');
 const authRoutes = require('./Routes/authRoutes');
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.use(cookieParser());
 app.use(session({
