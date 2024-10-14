@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles.css" rel="stylesheet">
+    <title>Página inicial</title>
+    <link rel="icon" type="image/svg+xml" href="/flor.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="header"> 
+            <img src="logo.svg" id="logo" alt="logo"> 
+            <p class="lobster-regular">EcoNature</p>
+            <input type="text" id="pesquisa" placeholder="Pesquisar...">
+            <a href="/cart"><img src="cart.png" id="cart" alt="Carrinho"></a>
+
+            <div class="dropdown">
+                <img src="user.png" id="user" alt="User" class="user-icon">
+                <div class="dropdown-content">
+                    <nav>
+                        <ul>
+                            <% if (usuarioAutenticado) { %>
+                                <li><a href="/perfil">Seu Perfil</a></li>
+                                <li><a href="/logout">Sair</a></li>
+                            <% } else { %>
+                                <li><a href="/login">Login</a></li>
+                                <li><a href="/registro">Registro</a></li>
+                            <% } %>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="navbar">
+        <a href="./catalogo" class="link">Catálogo</a>
+        <a href="/contato" class="link">Contato</a>
+        <a href="/sobre" class="link">Sobre Nós</a>
+    </div>
+
+    <div class="produtos">
+        <h2>PROMOÇÕES DA SEMANA</h2>
+        
+
+        <div class="produtos-lista">
+            <div class="prod">
+                <img class="noimage" src="./noimage.jpg" alt="Produto sem imagem">
+                <h3>Produto Título</h3>
+                <p>Isso é uma breve descrição do<br>produto</p>
+                <img src="./estrelas.png" class="estrela" alt="Estrelas">
+                <div class="preço">
+                    <p class="preco">R$ 300</p>
+                    <p class="preco2">R$499</p>
+                </div>
+                <a href="./cart"><button class="comprar">ADICIONAR AO CARRINHO</button></a>
+            </div>
+
+            <div class="prod">
+                <img class="noimage" src="./noimage.jpg" alt="Produto sem imagem">
+                <h3>Produto Título</h3>
+                <p>Isso é uma breve descrição do<br>produto</p>
+                <img src="./estrelas.png" class="estrela" alt="Estrelas">
+                <div class="preço">
+                    <p class="preco">R$ 300</p>
+                    <p class="preco2">R$499</p>
+                </div>
+                <a href="./cart"><button class="comprar">ADICIONAR AO CARRINHO</button></a>
+            </div>
+
+            <div class="prod">
+                <img class="noimage" src="./noimage.jpg" alt="Produto sem imagem">
+                <h3>Produto Título</h3>
+                <p>Isso é uma breve descrição do<br>produto</p>
+                <img src="./estrelas.png" class="estrela" alt="Estrelas">
+                <div class="preço">
+                    <p class="preco">R$ 300</p>
+                    <p class="preco2">R$499</p>
+                </div>
+                <a href="./cart"><button class="comprar">ADICIONAR AO CARRINHO</button></a>
+            </div>
+
+            <div class="prod">
+                <img class="noimage" src="./noimage.jpg" alt="Produto sem imagem">
+                <h3>Produto Título</h3>
+                <p>Isso é uma breve descrição do<br>produto</p>
+                <img src="./estrelas.png" class="estrela" alt="Estrelas">
+                <div class="preço">
+                    <p class="preco">R$ 300</p>
+                    <p class="preco2">R$499</p>
+                </div>
+                <a href="./cart"><button class="comprar">ADICIONAR AO CARRINHO</button></a>
+            </div>
+
+            <div class="prod">
+                <img class="noimage" src="./noimage.jpg" alt="Produto sem imagem">
+                <h3>Produto Título</h3>
+                <p>Isso é uma breve descrição do<br>produto</p>
+                <img src="./estrelas.png" class="estrela" alt="Estrelas">
+                <div class="preço">
+                    <p class="preco">R$ 300</p>
+                    <p class="preco2">R$499</p>
+                </div>
+                <a href="./cart"><button class="comprar">ADICIONAR AO CARRINHO</button></a>
+            </div>
+        </div>
+    
+
+    <h2 id="maisvendido"><strong>MAIS VENDIDOS</strong></h2>
+
+    <div class="maisvendido">
+        <div class="maisvendido1">
+            <div class="prod">
+                <img class="noimage" src="./noimage.jpg" alt="Produto sem imagem">
+                <h3>Produto Título</h3>
+                <p>Isso é uma breve descrição do<br>produto</p>
+                <img src="./estrelas.png" class="estrela" alt="Estrelas">
+                <div class="preço">
+                    <p class="preco">R$ 300</p>
+                    <p class="preco2">R$499</p>
+                </div>
+                <a href="./cart"><button class="comprar">ADICIONAR AO CARRINHO</button></a>
+            </div>
+        </div>
+        <div class="maisvendido2">
+            <div class="prod">
+                <img class="noimage" src="./noimage.jpg" alt="Produto sem imagem">
+                <h3>Produto Título</h3>
+                <p>Isso é uma breve descrição do<br>produto</p>
+                <img src="./estrelas.png" class="estrela" alt="Estrelas">
+                <div class="preço">
+                    <p class="preco">R$ 300</p>
+                    <p class="preco2">R$499</p>
+                </div>
+                <a href="./cart"><button class="comprar">ADICIONAR AO CARRINHO</button></a>
+            </div>
+        </div>
+
+        <div class="maisvendido3">
+            <div class="prod">
+                <img class="noimage" src="./noimage.jpg" alt="Produto sem imagem">
+                <h3>Produto Título</h3>
+                <p>Isso é uma breve descrição do<br>produto</p>
+                <img src="./estrelas.png" class="estrela" alt="Estrelas">
+                <div class="preço">
+                    <p class="preco">R$ 300</p>
+                    <p class="preco2">R$499</p>
+                </div>
+                <a href="./cart"><button class="comprar">ADICIONAR AO CARRINHO</button></a>
+            </div>
+        </div>
+
+        <div class="maisvendido4">
+            <div class="prod">
+                <img class="noimage" src="./noimage.jpg" alt="Produto sem imagem">
+                <h3>Produto Título</h3>
+                <p>Isso é uma breve descrição do<br>produto</p>
+                <img src="./estrelas.png" class="estrela" alt="Estrelas">
+                <div class="preço">
+                    <p class="preco">R$ 300</p>
+                    <p class="preco2">R$499</p>
+                </div>
+                <a href="./cart"><button class="comprar">ADICIONAR AO CARRINHO</button></a>
+            </div>
+        </div>
+
+        <div class="maisvendido5">
+            <div class="prod">
+                <img class="noimage" src="./noimage.jpg" alt="Produto sem imagem">
+                <h3>Produto Título</h3>
+                <p>Isso é uma breve descrição do<br>produto</p>
+                <img src="./estrelas.png" class="estrela" alt="Estrelas">
+                <div class="preço">
+                    <p class="preco">R$ 300</p>
+                    <p class="preco2">R$499</p>
+                </div>
+                <a href="./cart"><button class="comprar">ADICIONAR AO CARRINHO</button></a>
+            </div>
+        </div>
+    </div>
+</div>
+    <footer>
+        <p>&copy; 2024, Todos os direitos reservados.</p>
+    </footer>
+    <script>
+        const input = document.getElementById('pesquisa');
+        input.addEventListener('click', () => {
+            window.location.href = './catalogo';
+        });
+    </script>
+</body>
+
+</html>

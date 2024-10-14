@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="registro.css">
+    <link rel="icon" type="image/svg+xml" href="/flor.svg">
+</head>
+<body>
+    <div class="tela">
+        <div class="lado-esquerdo">
+            <h1>Bem-vindo <br> à loja <br><span>ECONATURE</span></h1>
+            <p>Crie sua conta para começar suas compras e melhorar a sua saúde</p>
+        </div>
+        <div class="lado-direito">
+            <div class="container-registro">
+                <h2>FAÇA <span>REGISTRO</span></h2>
+                <form id="registro-form" action="/registro" method="post">
+                    <div class="grupo-input">
+                        <input type="text"   name="nome"    id="nome" placeholder="Nome completo" required>
+                    </div>
+                    <div class="grupo-input">
+                        <input type="text" name="usuario" id="usuario" placeholder="Usuário" required>
+                    </div>
+                    <div class="grupo-input">
+                        <input type="email" name="email" id="email" placeholder="E-mail" required>
+                    </div>
+                    <div class="grupo-input">
+                        <input type="password" name="senha" id="senha" placeholder="Senha" required>
+                    </div>
+                    <div class="grupo-input">
+                        <input type="password" id="confirmar-senha" placeholder="Confirmar Senha" required>
+                    </div>
+                    <button type="submit" class="botao">Registrar</button>
+                </form>
+                <div class="acoes">
+                    <p>Já tem uma conta? <a href="/login">Faça login aqui</a></p>
+                </div>
+                <audio id="click-sound" src="Streamer da rage insano! Bruno hikikomori.mp3" preload="auto"></audio>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function playSound(event) {
+            event.preventDefault(); 
+            const audio = document.getElementById('click-sound');
+audio.play();
+
+            audio.onended = function() {
+                document.getElementById('registro-form').submit();
+            };
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/perfil.css" rel="stylesheet">
+    <title>Seu Perfil</title>
+    <link rel="icon" type="image/svg+xml" href="/flor.svg">
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="perfil-info">
+            <img src="https://i.pinimg.com/564x/3d/3e/9c/3d3e9cbce2db56af2bfc47e7a72a7003.jpg" alt="Foto de Perfil" class="foto-perfil"> <!-- Foto de perfil -->
+            <h3>Bem vindo <%= user.name %></h3>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#perfil">Perfil</a></li>
+                <li><a href="#preferencias">Configuraçoes</a></li>
+                <li><a href="#historico">Purchase History</a></li>
+                <li><a href="/logout" class="logout-button">Log out</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="content">
+        <header>
+            <input type="text" placeholder="Search...">
+            <a href="/cart"><img src="cart.png" alt="Cart"></a>
+        </header>
+
+        <div class="section" id="perfil">
+            <h2>Informação Do Usuario</h2>
+            <p><%= user.name %></p>
+            <p>Email: <%= user.email %></p>
+        </div>
+
+        <div class="section" id="preferencias">
+            <h2>Preferencias</h2>
+            <p>Condiçoes de vida: Diabetes, Hipertenção</p>
+            <p>Pagamentos Salvos: Cartao de Credito (**** 1234), PayPal</p>
+        </div>
+
+        <div class="section" id="historico">
+            <h2>Historico de compras</h2>
+            <ul>
+                <li>Compra 1: Suplemento de Vitamica C - Entregue</li>
+                <li>Compra 2: Creme Hidratante - Em transito</li>
+            </ul>
+        </div>
+    </div>
+</body>
