@@ -2,24 +2,15 @@
   "name": "econature",
   "version": "1.0.0",
   "description": "",
-<<<<<<< HEAD
-  "main": "index.js",
-  "scripts": {
-    "start": "node app.js"
-=======
   "main": "app.js",
   "scripts": {
     "start":"node app.js"
->>>>>>> 93892368578664165aa8687f4c2e2125794359ea
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-<<<<<<< HEAD
     "bcrypt": "^5.1.1",
-=======
->>>>>>> 93892368578664165aa8687f4c2e2125794359ea
     "body-parser": "^1.20.3",
     "cookie-parser": "^1.4.7",
     "dotenv": "^16.4.5",
@@ -27,10 +18,7 @@
     "express": "^4.21.0",
     "express-session": "^1.18.1",
     "mysql": "^2.18.1",
-<<<<<<< HEAD
     "mysql2": "^3.11.3",
-=======
->>>>>>> 93892368578664165aa8687f4c2e2125794359ea
     "nodemon": "^3.1.7",
     "sequelize": "^6.37.4"
   }
