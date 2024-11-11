@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Criação de Produtos</title>
+  <link rel="stylesheet" href="produtos.css">
+  <link rel="icon" type="image/svg+xml" href="/flor.svg">
+</head>
+
+<body>
+  <div class="tela-produto">
+    <div class="container-produto">
+      <h2>Adicionar <span>Produto</span></h2>
+      <form action="/criar-produto" method="POST" enctype="multipart/form-data">
+        <label for="nome">Nome do Produto:</label>
+        <input type="text" id="nome" name="nome" required><br>
+
+        <label for="descricao">Descrição:</label>
+        <textarea id="descricao" name="descricao" required></textarea><br>
+
+        <label for="preco">Preço:</label>
+        <input type="number" id="preco" name="preco" required><br>
+
+        <label for="categoria">Categoria:</label>
+        <div class="grupo-radio">
+          <input type="radio" id="suplementos" name="categoria" value="Suplementos" required>
+          <label for="suplementos">Suplementos</label><br>
+
+          <input type="radio" id="cosmeticos" name="categoria" value="Cosméticos" required>
+          <label for="cosmeticos">Cosméticos</label><br>
+
+          <input type="radio" id="alimentos" name="categoria" value="Alimentos" required>
+          <label for="alimentos">Alimentos</label><br>
+        </div>
+
+
+        <label for="imagem">Imagem do Produto:</label>
+        <input type="file" id="imagem" name="imagem" required><br>
+
+        <label for="doencas">Doenças Relacionadas:</label>
+        <select name="doencas" id="doencas" multiple>
+          <% doencas.forEach(function(doenca) { %>
+            <option value="<%= doenca.id %>">
+              <%= doenca.name %>
+            </option>
+            <% }); %>
+        </select><br>
+
+        <button type="submit" class="botao">Criar Produto</button>
+      </form>
+
+    </div>
+  </div>
+
+  <script>
+  
+  </script>
+</body>
+
+</html>

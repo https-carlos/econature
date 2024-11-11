@@ -1,0 +1,41 @@
+<html>
+
+<head>
+    <title>Usuarios</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/perfil.css" rel="stylesheet">
+    <link rel="stylesheet" href="4.css">
+</head>
+
+<body>
+
+
+    <h1>Usuários</h1>
+    <table>
+        <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Ações</th>
+        </tr>
+        <% users.forEach(user=> { %>
+            <tr>
+                <td>
+                    <%= user.name %>
+                </td>
+                <td>
+                    <%= user.email %>
+                </td>
+                <td>
+                    <a href="/usuarios/<%= user.id %>/edit">Editar</a> <!-- Link para página de edição -->
+                    <form action="/usuarios/<%= user.id %>/delete" method="POST" style="display:inline;">
+                        <button type="submit"
+                            onclick="return confirm('Confirma excluir este usuário?');">Excluir</button>
+                    </form>
+                </td>
+            </tr>
+            <% }) %>
+    </table>
+</body>
+
+</html>

@@ -1,47 +1,13 @@
-<<<<<<< HEAD
 const express = require('express');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const sequelize = require('./Config/database');
-const authRoutes = require('./Routes/authRoutes');
-
+const router = require('./Routes/authRoutes');
 const app = express();
-const port = 3000;
+const multer = require('multer');
+const path = require('path');
 
-app.use(cookieParser());
-app.use(session({
-    secret: 'chave-secreta',
-    resave: false,
-    saveUninitialized: false,
-    cookie: { maxAge: 60000 * 60 },
-}));
-
-app.use(bodyParser.urlencoded({ extended: true }));
-app.set('view engine', 'ejs');
-app.use(express.static('public'));
-app.use(express.static('archives'));
-
-app.use('/', authRoutes);
-
-sequelize.sync()
-    .then(() => {
-        app.listen(port, () => {
-            console.log(`Servidor rodando na porta ${port}`);
-        });
-    })
-    .catch(err => {
-        console.error('Erro ao sincronizar banco de dados:', err);
-    });
-=======
-const express = require('express');
-const bodyParser = require('body-parser');
-const session = require('express-session');
-const cookieParser = require('cookie-parser');
-const sequelize = require('./Config/database');
-const authRoutes = require('./Routes/authRoutes');
-
-const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(cookieParser());
@@ -52,12 +18,24 @@ app.use(session({
     cookie: { maxAge: 60000 * 60 },
 }));
 
+
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
+
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'public/uploads/');
+    },
+    filename: function (req, file, cb) {
+        cb(null, Date.now() + path.extname(file.originalname));
+    }
+});
+
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(express.static('archives'));
 
-app.use('/', authRoutes);
+app.use('/', router);
 
 sequelize.sync()
     .then(() => {
@@ -68,4 +46,3 @@ sequelize.sync()
     .catch(err => {
         console.error('Erro ao sincronizar banco de dados:', err);
     });
->>>>>>> 93892368578664165aa8687f4c2e2125794359ea

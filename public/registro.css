@@ -1,27 +1,28 @@
+/* Estilos Globais */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
+    background-color: #f3f7f6;
+    color: #333;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f0f4f3;
+    margin: 0;
 }
 
-
+/* Tela de Registro */
 .tela {
     display: grid;
     grid-template-columns: 1fr 1fr;
     width: 100vw;
     height: 100vh;
 }
-
 
 .lado-esquerdo {
     background-image: url('https://img.freepik.com/fotos-gratis/um-monte-de-hortela-fresca-em-maos-femininas_158595-6938.jpg?w=826&t=st=1727305271~exp=1727305871~hmac=10e38932141090a18ee248c1b19a13ac2b08bc3fdc75240e526144be5d3b36d9');
@@ -38,6 +39,7 @@ body {
     font-size: 3rem;
     font-weight: bold;
     margin-bottom: 20px;
+    color: #fff;
 }
 
 .lado-esquerdo span {
@@ -46,10 +48,12 @@ body {
 
 .lado-esquerdo p {
     font-size: 1.2rem;
+    margin-top: 15px;
     font-weight: bold;
+    color: #ddd;
 }
 
-
+/* Estilo do lado direito */
 .lado-direito {
     background-color: rgba(255, 255, 255, 0.9);
     background-image: url('https://img.freepik.com/fotos-premium/fotografia-completa-de-folhas-verdes-de-hortela_1048944-9527277.jpg?w=740');
@@ -58,20 +62,22 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px;
 }
 
-
+/* Container de Registro */
 .container-registro {
     width: 100%;
     max-width: 400px;
-    padding: 20px;
+    padding: 30px;
+    background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
-
+/* Título do Registro */
 .lado-direito h2 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: bold;
     color: #333;
     margin-bottom: 30px; 
@@ -83,76 +89,74 @@ body {
     font-weight: bold;
 }
 
-
+/* Formulário */
 form {
     display: flex;
     flex-direction: column;
     align-items: center; 
 }
 
-
 .grupo-input {
     margin-bottom: 20px;
-    width: 100%; 
+    width: 100%;
 }
 
-input {
+input, select {
     width: 100%;
     max-width: 350px;
-    font-weight: bold;
-    padding: 15px; 
+    padding: 15px;
     font-size: 1rem;
     border: 2px solid #00A64F;
-    border-radius: 5px; 
+    border-radius: 5px;
+    background-color: #f0f4f3;
     transition: border 0.3s, background-color 0.3s;
 }
 
-input:focus {
+input:focus, select:focus {
     border-color: #008B3F;
-    background-color: #f0f8f5;
+    background-color: #f5fdf8;
     outline: none;
 }
 
+select {
+    cursor: pointer;
+}
 
 .acoes {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    max-width: 350px;
     margin-top: 20px;
 }
 
 .acoes p {
     font-size: 1rem;
-    color: #333;
 }
 
 .acoes a {
     color: #00A64F;
-    text-decoration: none;
     font-weight: bold;
+    text-decoration: none;
     transition: color 0.3s;
-    margin-left: 5px;
 }
 
 .acoes a:hover {
     color: #008B3F;
 }
 
-
+/* Botão */
 .botao {
-    font-weight: bold;
-    padding: 15px 50px; 
+    width: 100%;
+    max-width: 350px;
+    padding: 15px;
     font-size: 1.1rem;
     color: white;
     background-color: #00A64F;
     border: none;
-    border-radius: 30px; 
+    border-radius: 30px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s;
-    margin-top: 20px; 
-    width: auto;
+    margin-top: 20px;
 }
 
 .botao:hover {
@@ -164,51 +168,26 @@ input:focus {
     transform: scale(1);
 }
 
+/* Responsividade */
 @media (max-width: 768px) {
     .tela {
         grid-template-columns: 1fr;
-        height: auto;
     }
 
-    .lado-esquerdo, 
-    .lado-direito {
+    .lado-esquerdo, .lado-direito {
         padding: 20px;
-        height: auto;
     }
 
     .lado-esquerdo h1 {
         font-size: 2rem;
     }
 
-    .lado-esquerdo p {
-        font-size: 1rem;
-    }
-
-    .lado-direito {
-        background: none; 
-        background-color: rgba(255, 255, 255, 0.9);
-    }
-
     .container-registro {
-        max-width: 100%;
-        padding: 15px;
+        padding: 20px;
     }
 
-    input {
-        padding: 10px;
-        font-size: 0.9rem;
-    }
-
-    .botao {
-        padding: 10px 40px;
-        font-size: 1rem;
-    }
-
-    .acoes p {
-        font-size: 0.9rem;
-    }
-
-    .acoes a {
+    input, select, .botao {
+        padding: 12px;
         font-size: 0.9rem;
     }
 }

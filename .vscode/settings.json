@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "undefined/subscriptions/a9d51e84-9102-4d46-9ff4-e89e5ac1db10/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/danaoman",
+    "appService.deploySubpath": "."
+}

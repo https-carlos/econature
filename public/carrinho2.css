@@ -1,0 +1,126 @@
+/* Estilos Globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f4f3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Tela do Carrinho */
+.tela-carrinho {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.container-carrinho {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+h2 span {
+    color: #00A64F;
+}
+
+.lista-itens {
+    margin-bottom: 30px;
+}
+
+.item-carrinho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f0f4f3;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.imagem-produto {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+}
+
+.info-produto {
+    flex: 1;
+    margin-left: 15px;
+}
+
+.info-produto h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.acoes-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.acoes-item button {
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 1rem;
+    color: white;
+    background-color: #00A64F;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.acoes-item button:hover {
+    background-color: #008B3F;
+}
+
+/* Resumo da Compra */
+.resumo-compra {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.resumo-compra h3 {
+    margin-bottom: 10px;
+}
+
+.resumo-compra p {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.botao-finalizar {
+    padding: 15px;
+    font-size: 1.1rem;
+    color: white;
+    background-color: #00A64F;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.botao-finalizar:hover {
+    background-color: #008B3F;
+}

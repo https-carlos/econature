@@ -18,7 +18,7 @@
                 <h2>FAÇA <span>REGISTRO</span></h2>
                 <form id="registro-form" action="/registro" method="post">
                     <div class="grupo-input">
-                        <input type="text"   name="nome"    id="nome" placeholder="Nome completo" required>
+                        <input type="text" name="nome" id="nome" placeholder="Nome completo" required>
                     </div>
                     <div class="grupo-input">
                         <input type="text" name="usuario" id="usuario" placeholder="Usuário" required>
@@ -31,6 +31,21 @@
                     </div>
                     <div class="grupo-input">
                         <input type="password" id="confirmar-senha" placeholder="Confirmar Senha" required>
+                    </div>
+                    <div class="grupo-input">
+                        <label for="doencas">Selecione suas doenças crônicas:</label>
+                        <select name="doencas" id="doencas" multiple required>
+                            <option value="Hipertensão">Hipertensão (Pressão Alta)</option>
+                            <option value="Diabetes Tipo 2">Diabetes Tipo 2</option>
+                            <option value="Artrite">Artrite (Osteoartrite e Artrite Reumatoide)</option>
+                            <option value="Asma">Asma</option>
+                            <option value="Colesterol Alto">Colesterol Alto</option>
+                            <option value="Doença do Fígado">Doença do Fígado (Esteatose Hepática)</option>
+                            <option value="Insônia">Insônia</option>
+                            <option value="Ansiedade">Ansiedade e Depressão Leve</option>
+                            <option value="Síndrome do Intestino Irritável">Síndrome do Intestino Irritável (SII)</option>
+                            <option value="Enxaqueca">Enxaqueca</option>
+                        </select>
                     </div>
                     <button type="submit" class="botao">Registrar</button>
                 </form>
@@ -46,8 +61,7 @@
         function playSound(event) {
             event.preventDefault(); 
             const audio = document.getElementById('click-sound');
-audio.play();
-
+            audio.play();
             audio.onended = function() {
                 document.getElementById('registro-form').submit();
             };

@@ -1,0 +1,49 @@
+<html>
+
+<head>
+    <title>Produtos</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/perfil.css" rel="stylesheet">
+    <link rel="stylesheet" href="4.css">
+</head>
+
+<body>
+
+
+    <h1>Produtos</h1>
+    <table>
+        <tr>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Preço</th>
+            <th>Categoria</th>
+            <th>Ações</th>
+        </tr>
+        <% products.forEach(product=> { %>
+            <tr>
+                <td>
+                    <%= product.name %>
+                </td>
+                <td>
+                    <%= product.description %>
+                </td>
+                <td>
+                    <%= product.price %>
+                </td>
+                <td>
+                    <%= product.category %>
+                </td>
+                <td>
+                    <a href="/produtos/<%= product.id %>/edit">Editar</a>
+                    <form action="/produtos/<%= product.id %>/delete" method="POST" style="display:inline;">
+                        <button type="submit"
+                            onclick="return confirm('Confirma excluir este produto?');">Excluir</button>
+                    </form>
+                </td>
+            </tr>
+            <% }) %>
+    </table>
+</body>
+
+</html>
