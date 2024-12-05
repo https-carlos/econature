@@ -130,10 +130,10 @@ exports.logout = (req, res) => {
 };
 
 exports.exibirCarrinho = (req, res) => {
-    const carrinho = req.session.carrinho || [];
-    const total = carrinho.reduce((sum, produto) => sum + produto.preco * produto.quantidade, 0);
-
-    res.render('carrinho', { carrinho, total });
+    res.render('carrinho');
+};
+exports.exibirCarrinho2 = (req, res) => {
+    res.render('carrinho2');
 };
 
 
