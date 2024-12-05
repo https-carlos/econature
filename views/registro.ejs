@@ -1,3 +1,4 @@
+<!-- registro.ejs -->
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -34,19 +35,13 @@
                     </div>
                     <div class="grupo-input">
                         <label for="doencas">Selecione suas doenças crônicas:</label>
-                        <select name="doencas" id="doencas" multiple required>
-                            <option value="Hipertensão">Hipertensão (Pressão Alta)</option>
-                            <option value="Diabetes Tipo 2">Diabetes Tipo 2</option>
-                            <option value="Artrite">Artrite (Osteoartrite e Artrite Reumatoide)</option>
-                            <option value="Asma">Asma</option>
-                            <option value="Colesterol Alto">Colesterol Alto</option>
-                            <option value="Doença do Fígado">Doença do Fígado (Esteatose Hepática)</option>
-                            <option value="Insônia">Insônia</option>
-                            <option value="Ansiedade">Ansiedade e Depressão Leve</option>
-                            <option value="Síndrome do Intestino Irritável">Síndrome do Intestino Irritável (SII)</option>
-                            <option value="Enxaqueca">Enxaqueca</option>
+                        <select name="doencas[]" id="doencas" multiple required>
+                            <% doencas.forEach(doenca => { %>
+                                <option value="<%= doenca.id %>"><%= doenca.name %></option>
+                            <% }); %>
                         </select>
                     </div>
+                    
                     <button type="submit" class="botao">Registrar</button>
                 </form>
                 <div class="acoes">

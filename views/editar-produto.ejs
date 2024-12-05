@@ -1,9 +1,9 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="pt-br">
 <head>
-    <title>Editar Produto</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Produto</title>
     <style>
         body {
             background-color: #e8f5e9;
@@ -69,7 +69,6 @@
         }
     </style>
 </head>
-
 <body>
     <h2>Editar Produto</h2>
     <form action="/produtos/<%= product.id %>/update" method="POST" enctype="multipart/form-data">
@@ -91,14 +90,13 @@
         <label for="doencas">Doenças Relacionadas:</label>
         <select name="doencas" id="doencas" multiple>
             <% doencas.forEach(function(doenca) { %>
-                <option value="<%= doenca.id %>" <%=product.doencas.some(d=> d.id === doenca.id) ? 'selected' : '' %> >
+                <option value="<%= doenca.id %>" <%= product.doencas.some(d => d.id === doenca.id) ? 'selected' : '' %> >
                     <%= doenca.name %>
                 </option>
-                <% }); %>
+            <% }); %>
         </select><br>
 
         <button type="submit">Salvar Alterações</button>
     </form>
 </body>
-
 </html>

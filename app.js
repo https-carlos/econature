@@ -1,3 +1,4 @@
+//app.js
 const express = require('express');
 const bodyParser = require('body-parser');
 const session = require('express-session');
@@ -7,6 +8,7 @@ const router = require('./Routes/authRoutes');
 const app = express();
 const multer = require('multer');
 const path = require('path');
+const { FORCE } = require('sequelize/lib/index-hints');
 
 const port = process.env.PORT || 3000;
 

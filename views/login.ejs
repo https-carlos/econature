@@ -1,3 +1,5 @@
+<!-- login.ejs -->
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -32,25 +34,10 @@
                     </div>
                     <button type="submit" class="botao" id="botaoxd">Entrar</button>
                 </form>
-                <audio id="click-sound" src="AUD-20240920-WA0043.mp3" preload="auto"></audio>
+                
             </div>
         </div>
     </div>
 
-    <script>
-        function playSound(event) {
-            event.preventDefault(); 
-            const audio = document.getElementById('click-sound');
-            audio.play();
-
-            
-            audio.onended = function() {
-                document.getElementById('login-form').submit();
-            };
-        }
-
-
-
-    </script>
 </body>
 </html>

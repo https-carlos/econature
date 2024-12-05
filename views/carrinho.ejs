@@ -27,9 +27,14 @@
                         <% carrinho.forEach(function(produto) { %>
                             <tr>
                                 <td><%= produto.nome %></td>
-                                <td><%= produto.quantidade %></td>
-                                <td>R$ <%= produto.preco.toFixed(2) %></td>
-                                <td>R$ <%= (produto.preco * produto.quantidade).toFixed(2) %></td>
+                                <td>
+                                    <form action="/atualizar-quantidade" method="POST" class="quantidade-form">
+                                        <input type="hidden" name="produtoId" value="<%= produto.id %>">
+                                        <input type="number" name="quantidade" value="<%= produto.quantidade %>" min="1" class="input-quantidade" onchange="atualizarSubtotal(this, <%= produto.preco %>, <%= produto.id %>)">
+                                    </form>
+                                </td>
+                                <td>R$ <span class="preco-unitario"><%= produto.preco.toFixed(2) %></span></td>
+                                <td>R$ <span class="subtotal"><%= (produto.preco * produto.quantidade).toFixed(2) %></span></td>
                                 <td>
                                     <form action="/remover-do-carrinho" method="POST">
                                         <input type="hidden" name="produtoId" value="<%= produto.id %>">
@@ -51,8 +56,32 @@
                 <p>Seu carrinho está vazio.</p>
             <% } %>
 
-            <a href="/produtos" class="botao-voltar">Continuar Comprando</a>
+            <a href="/inicial" class="botao-voltar">Continuar Comprando</a>
         </div>
     </div>
+
+    <script>
+        function atualizarSubtotal(input, precoUnitario, produtoId) {
+            const quantidade = input.value;
+            const subtotal = (precoUnitario * quantidade).toFixed(2);
+            const subtotalElement = input.closest('tr').querySelector('.subtotal');
+            subtotalElement.textContent = `R$ ${subtotal}`;
+
+            // Envia a nova quantidade para o servidor
+            const form = input.closest('form');
+            const formData = new FormData(form);
+            fetch(form.action, {
+                method: 'POST',
+                body: formData
+            }).then(response => response.json())
+              .then(data => {
+                if (data.success) {
+                    // Atualiza o total
+                    const totalElement = document.querySelector('.total h3');
+                    totalElement.textContent = `Total: R$ ${data.total.toFixed(2)}`;
+                }
+            }).catch(error => console.error('Erro:', error));
+        }
+    </script>
 </body>
 </html>

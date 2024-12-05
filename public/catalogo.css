@@ -1,7 +1,9 @@
+/* Corpo da página */
 body {
     height: 100vh;
 }
 
+/* Catálogo */
 .catalogo {
     display: grid;
     grid-template-columns: 20% auto;
@@ -15,25 +17,102 @@ body {
     text-decoration: none;
 }
 
+/* Filtro */
 .filtro {
     background-color: rgb(204, 204, 204);
     min-height: 83vh;
-
 }
 
 h2 {
     color: black;
 }
 
+/* Resultados - Layout Responsivo */
 .resultados {
     display: grid;
-    grid-template-columns: auto auto auto auto auto;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsividade */
+    gap: 1rem;
 }
 
-.prod1, .prod2, .prod3, .prod4, .prod5, .prod6{
+/* Produtos */
+.prod1, .prod2, .prod3, .prod4, .prod5, .prod6 {
     grid-row-start: 1;
 }
 
 .intervalo {
     width: 100px;
+}
+
+/* Barra de Pesquisa */
+.search-form {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+#pesquisa {
+    width: 80%; /* A barra de pesquisa ocupa 80% da largura disponível */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box; /* Garantir que o padding não afete o tamanho */
+}
+
+#search-btn {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+#search-btn:hover {
+    background-color: #45a049;
+}
+
+/* Ajustes para a barra de ícones */
+.header > div {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#user, #cart {
+    width: 30px;
+    height: 30px;
+    margin-left: 15px;
+}
+
+/* Responsividade */
+@media screen and (max-width: 600px) {
+    /* Barra de pesquisa */
+    .search-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #pesquisa {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    #search-btn {
+        width: 100%;
+    }
+
+    /* Ajustes nos ícones */
+    .header > div {
+        justify-content: space-around;
+        width: 100%;
+    }
+
+    #user, #cart {
+        width: 25px;
+        height: 25px;
+    }
 }

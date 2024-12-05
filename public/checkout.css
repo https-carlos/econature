@@ -1,0 +1,110 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corpo da página */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #e8f5e9; /* Fundo verde claro */
+    color: #2e7d32; /* Texto verde escuro */
+    margin: 0;
+    padding: 0;
+}
+
+/* Container principal */
+.container-checkout {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Título */
+h2 {
+    text-align: center;
+    color: #388e3c; /* Verde mais forte */
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+/* Detalhes do Carrinho */
+.detalhes-carrinho {
+    margin-bottom: 30px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #388e3c; /* Linha de separação verde */
+}
+
+th {
+    background-color: #81c784; /* Fundo verde suave para os títulos */
+    color: white;
+    font-size: 1.1em;
+}
+
+td {
+    font-size: 1.1em;
+}
+
+td:last-child {
+    font-weight: bold;
+    color: #388e3c;
+}
+
+/* Total de compra */
+.total {
+    text-align: right;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-top: 20px;
+    border-top: 2px solid #388e3c; /* Linha superior verde */
+    padding-top: 20px;
+    color: #388e3c;
+}
+
+/* Botão Finalizar Compra */
+button {
+    background-color: #388e3c;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #2c6e2f; /* Verde mais escuro no hover */
+}
+
+/* Caso o carrinho esteja vazio */
+p {
+    text-align: center;
+    font-size: 1.2em;
+}
+
+a {
+    color: #388e3c;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+

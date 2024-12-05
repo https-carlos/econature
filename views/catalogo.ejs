@@ -1,28 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="styles.css" rel="stylesheet">
-    <link href="catalogo.css" rel="stylesheet">
-    <title>Catalogo</title>
+    <link href="/styles.css" rel="stylesheet">
+    <link href="/catalogo.css" rel="stylesheet">
+    <title>Catálogo</title>
     <link rel="icon" type="image/svg+xml" href="/flor.svg">
 </head>
 
 <body>
-
     <div class="header">
-        <a href="./index.html" id="logo"><img src="logo.svg" alt=""></a>
-        <input type="text" id="pesquisa">
-
+        <a href="/inicial" id="logo"><img src="/logo.svg" alt=""></a>
+        <form method="GET" action="/catalogo" class="search-form">
+            <input type="text" name="search" id="pesquisa" value="<%= search || '' %>" placeholder="Pesquise produtos">
+            <button type="submit" id="search-btn">Buscar</button>
+        </form>
         <div>
-            <a href="/user"><img src="user.png" id="user"></a>
-            <a href="/cart"><img src="cart.png" id="cart"></a>
+            <a href="/user"><img src="/user.png" id="user"></a>
+            <a href="/cart"><img src="/cart.png" id="cart"></a>
         </div>
     </div>
+
+    <!-- Barra de Navegação -->
     <div class="navbar">
-        <a href="./catalogo" class="link">Catálogo</a>
+        <a href="/catalogo" class="link">Catálogo</a>
         <a href="/contato" class="link">Contato</a>
         <a href="/sobre" class="link">Sobre Nós</a>
     </div>
@@ -30,90 +33,42 @@
     <div class="catalogo">
         <div class="filtro">
             <h2>FILTROS</h2>
-            INTERVALO DE PREÇO<br><br>
-            entre
-            <input class="intervalo" type="number"> e
-            <input class="intervalo" type="number">
-            <br><p id="problemas">PROBLEMAS</p>
-            <input type="checkbox"> Diabétes<br>
-            <input type="checkbox"> Colesterol<br>
-            <input type="checkbox"> Pressão alta<br>
-            <input type="checkbox"> Pressão baixa<br>
+            <form method="GET" action="/catalogo">
+                <label for="categoria">Categoria:</label>
+                <select name="categoria" id="categoria">
+                    <option value="">Todas</option>
+                    <% categoriasUnicas.forEach(categoria => { %>
+                        <option value="<%= categoria %>" <%= categoria === categoria ? 'selected' : '' %> >
+                            <%= categoria %>
+                        </option>
+                    <% }); %>
+                </select>
+                <button type="submit">Filtrar</button>
+            </form>
         </div>
+        
         <div class="resultados">
-            <div class="prod1">
-                <div class="prod">
-                    <img class="noimage" src="./noimage.jpg">
-                    <h3>Produto Título</h3>
-                    <p>Isso é uma breve descrição do<br>produto</p>
-                    <img src="./estrelas.png" class="estrela">
-                    <div class="preço">
-                        <p class="preco">R$ 300</p>
-                        <p class="preco2">R$499</p>
+            <% if (produtos.length > 0) { %>
+                <% produtos.forEach(produto => { %>
+                    <div class="prod">
+                        <img class="noimage" src="/uploads/<%= produto.image || 'noimage.jpg' %>" alt="<%= produto.name %>">
+                        <h3><%= produto.name %></h3>
+                        <p><%= produto.description %></p>
+                        <img src="/estrelas.png" class="estrela">
+                        <div class="preço">
+                            <p class="preco">R$ <%= produto.price.toFixed(2) %></p>
+                            <% if (produto.oldPrice) { %>
+                                <p class="preco2">R$ <%= produto.oldPrice.toFixed(2) %></p>
+                            <% } %>
+                        </div>
+                        <a href="/cart"><button class="comprar">ADICIONAR AO CARRINHO</button></a>
                     </div>
-                    <a href="./cart"><a href="./cart"><button class="comprar">ADICIONAR AO CARRINHO</button></a>
-                </div>
-            </div>
-    
-            <div class="prod3">
-                <div class="prod">
-                    <img class="noimage" src="./noimage.jpg">
-                    <h3>Produto Título</h3>
-                    <p>Isso é uma breve descrição do<br>produto</p>
-                    <img src="./estrelas.png" class="estrela">
-                    <div class="preço">
-                        <p class="preco">R$ 300</p>
-                        <p class="preco2">R$499</p>
-                    </div>
-                    <a href="./cart"><button class="comprar">ADICIONAR AO CARRINHO</button></a>
-                </div>
-            </div>
-    
-            <div class="prod2">
-                <div class="prod">
-                    <img class="noimage" src="./noimage.jpg">
-                    <h3>Produto Título</h3>
-                    <p>Isso é uma breve descrição do<br>produto</p>
-                    <img src="./estrelas.png" class="estrela">
-                    <div class="preço">
-                        <p class="preco">R$ 300</p>
-                        <p class="preco2">R$499</p>
-                    </div>
-                    <a href="./cart"><button class="comprar">ADICIONAR AO CARRINHO</button></a>
-                </div>
-            </div>
-    
-            <div class="prod4">
-                <div class="prod">
-                    <img class="noimage" src="./noimage.jpg">
-                    <h3>Produto Título</h3>
-                    <p>Isso é uma breve descrição do<br>produto</p>
-                    <img src="./estrelas.png" class="estrela">
-                    <div class="preço">
-                        <p class="preco">R$ 300</p>
-                        <p class="preco2">R$499</p>
-                    </div>
-                    <a href="./cart"><button class="comprar">ADICIONAR AO CARRINHO</button></a>
-                </div>
-            </div>
-    
-            <div class="prod5">
-                <div class="prod">
-                    <img class="noimage" src="./noimage.jpg">
-                    <h3>Produto Título</h3>
-                    <p>Isso é uma breve descrição do<br>produto</p>
-                    <img src="./estrelas.png" class="estrela">
-                    <div class="preço">
-                        <p class="preco">R$ 300</p>
-                        <p class="preco2">R$499</p>
-                    </div>
-                    <a href="./cart"><button class="comprar">ADICIONAR AO CARRINHO</button></a>
-                </div>
-            </div>
-        </div>
+                <% }); %>
+            <% } else { %>
+                <p>Nenhum produto encontrado.</p>
+            <% } %>
         </div>
     </div>
-    
 </body>
 
 </html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalizar Compra</title>
+    <link rel="stylesheet" href="checkout.css">
+    <link rel="icon" type="image/svg+xml" href="/flor.svg">
+</head>
+<body>
+    <div class="container-checkout">
+        <h2>Finalizar Compra</h2>
+
+        <% if (carrinho.length > 0) { %>
+            <div class="detalhes-carrinho">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Produto</th>
+                            <th>Quantidade</th>
+                            <th>Preço Unitário</th>
+                            <th>Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% carrinho.forEach(function(produto) { %>
+                            <tr>
+                                <td><%= produto.nome %></td>
+                                <td><%= produto.quantidade %></td>
+                                <td>R$ <%= produto.preco.toFixed(2) %></td>
+                                <td>R$ <%= (produto.preco * produto.quantidade).toFixed(2) %></td>
+                            </tr>
+                        <% }); %>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="total">
+                <h3>Total: R$ <%= total.toFixed(2) %></h3>
+                <form action="/finalizar-compra" method="POST">
+                
+                    <button type="submit">Finalizar Compra</button>
+                </form>
+            </div>
+        <% } else { %>
+            <p>Seu carrinho está vazio. <a href="/inicial">Voltar para a loja</a></p>
+        <% } %>
+    </div>
+</body>
+</html>

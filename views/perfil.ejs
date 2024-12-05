@@ -14,13 +14,12 @@
         <div class="perfil-info">
             <img src="https://i.pinimg.com/564x/3d/3e/9c/3d3e9cbce2db56af2bfc47e7a72a7003.jpg" alt="Foto de Perfil"
                 class="foto-perfil"> <!-- Foto de perfil -->
-            <h3>Bem vindo <%= user.name %>
-            </h3>
+            <h3>Bem-vindo <%= user.name %></h3>
         </div>
         <nav>
             <ul>
                 <li><a href="#perfil">Perfil</a></li>
-                <li><a href="#historico">Historico de compras</a></li>
+                <li><a href="#historico">Histórico de compras</a></li>
                 <li><a href="/logout" class="logout-button">Sair</a></li>
                 <li><a href="/usuarios">Usuarios</a></li>
                 <li><a href="/produtos">Produtos</a></li>
@@ -39,22 +38,51 @@
             <p>
                 <%= user.name %>
             </p>
-            <p>Email: <%= user.email %>
-            </p>
+            <p>Email: <%= user.email %></p>
         </div>
 
         <div class="section" id="preferencias">
-            <h2>Preferencias</h2>
-            <p>Condiçoes de vida: Diabetes, Hipertenção</p>
-            <p>Pagamentos Salvos: Cartao de Credito (**** 1234), PayPal</p>
+            <h2>Preferências</h2>
+            <p>Condições de vida: Diabetes, Hipertensão</p>
+            <p>Pagamentos Salvos: Cartão de Crédito (**** 1234), PayPal</p>
         </div>
 
         <div class="section" id="historico">
-            <h2>Historico de compras</h2>
-            <ul>
-                <li>Compra 1: Suplemento de Vitamica C - Entregue</li>
-                <li>Compra 2: Creme Hidratante - Em transito</li>
-            </ul>
+            <h2>Histórico de Compras</h2>
+            <% if (user.Compras && user.Compras.length > 0) { %>
+                <ul>
+                    <% user.Compras.forEach(function(compra) { %>
+                        <li>
+                            <h3>Compra realizada em <%= compra.createdAt.toLocaleDateString() %> às <%= compra.createdAt.toLocaleTimeString() %></h3>
+                            <div class="product-info">
+                                <div>
+                                    <span>Produto:</span> 
+                                    <% if (compra.Products && compra.Products.length > 0) { %>
+                                        <%= compra.Products[0].name %>
+                                    <% } else { %>
+                                        Produto não encontrado
+                                    <% } %>
+                                </div>
+                                <div>
+                                    <span>Quantidade:</span> <%= compra.quantidade %>
+                                </div>
+                                <div>
+                                    <span>Total:</span> R$ <%= compra.total.toFixed(2) %>
+                                </div>
+                                <div>
+                                    <span>Status:</span> <%= compra.status %>
+                                </div>
+                            </div>
+                        </li>
+                    <% }); %>
+                </ul>
+            <% } else { %>
+                <p>Você ainda não fez compras.</p>
+            <% } %>
         </div>
+        
+
     </div>
 </body>
+
+</html>

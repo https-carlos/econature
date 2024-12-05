@@ -182,3 +182,61 @@ input:focus {
     font-size: 1.5rem; 
   }
 }
+
+/* Histórico de compras */
+#historico ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#historico li {
+  background-color: #f9f9f9; /* Fundo claro para cada item */
+  padding: 15px;
+  margin-bottom: 20px; /* Espaço entre os itens */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra leve */
+  border: 2px solid #006400; /* Borda verde escura */
+}
+
+#historico li h3 {
+  color: #006400;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+#historico li p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 5px 0;
+  color: #333;
+}
+
+#historico li p strong {
+  color: #006400; /* Destaque para os títulos das informações */
+}
+
+#historico li .product-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+#historico li .product-info div {
+  flex: 1;
+  min-width: 150px;
+}
+
+#historico li .product-info div span {
+  font-weight: bold;
+  color: #006400;
+}
+
+/* Adicionar espaçamento entre as seções */
+.section {
+  margin-bottom: 30px;
+  background-color: #f0fff0; /* Fundo verde muito claro para seções */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra leve */
+  border: 1px solid #006400; /* Borda verde escura */
+}

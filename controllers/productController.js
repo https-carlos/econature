@@ -3,7 +3,7 @@ const path = require('path');
 const Product = require('../models/Product');
 const Diseases = require('../models/Diseases');
 const ProductDisease = require('../models/ProductDisease');
-
+const { Op } = require('sequelize');
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -16,21 +16,15 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-
 exports.exibirFormularioProduto = async (req, res) => {
   try {
-
     const doencas = await Diseases.findAll();
-
-
     res.render('criar-produto', { doencas });
   } catch (err) {
     console.error('Erro ao carregar o formulário:', err);
     res.status(500).send('Erro ao carregar o formulário');
   }
 };
-
-
 
 exports.inserirProduto = async (req, res) => {
   try {
@@ -41,12 +35,10 @@ exports.inserirProduto = async (req, res) => {
       return res.status(400).send('A imagem do produto é obrigatória.');
     }
 
-
     const doencas = req.body.doencas;
     if (!doencas || doencas.length === 0) {
       return res.status(400).send('Pelo menos uma doença precisa ser selecionada.');
     }
-
 
     const produto = await Product.create({
       name: req.body.nome,
@@ -55,7 +47,6 @@ exports.inserirProduto = async (req, res) => {
       category: req.body.categoria,
       image: req.file.filename,
     });
-
 
     for (const doencaId of doencas) {
       await ProductDisease.create({
@@ -70,7 +61,6 @@ exports.inserirProduto = async (req, res) => {
     res.status(500).send('Erro ao adicionar o produto');
   }
 };
-
 
 exports.listProducts = async (req, res) => {
   try {
@@ -96,29 +86,35 @@ exports.editProduct = async (req, res) => {
   }
 };
 
-
-
 exports.updateProduct = async (req, res) => {
   try {
-    const { id } = req.params;
-    const { name, description, price, category, doencas } = req.body;
+    const { id } = req.params; // O ID do produto a ser atualizado
+    const { name, description, price, category, doencas } = req.body; // Dados enviados pelo formulário
+
+    // Objeto com os dados que serão atualizados no produto
     const updatedData = {
       name,
       description,
       price,
       category,
-      image: req.file ? req.file.filename : undefined,
+      image: req.file ? req.file.filename : undefined, // Atualiza a imagem apenas se um arquivo foi enviado
     };
 
+    // Atualizando o produto no banco de dados
     await Product.update(updatedData, { where: { id } });
 
+    // Se doenças foram selecionadas, vamos atualizar a relação entre produto e doenças
     if (doencas) {
+      // Remove as doenças antigas associadas ao produto
       await ProductDisease.destroy({ where: { ProductId: id } });
+
+      // Associa as novas doenças ao produto
       for (const diseaseId of doencas) {
         await ProductDisease.create({ ProductId: id, DiseaseId: diseaseId });
       }
     }
 
+    // Redireciona para a página de listagem de produtos após a atualização
     res.redirect('/produtos');
   } catch (err) {
     console.error('Erro ao atualizar produto:', err);

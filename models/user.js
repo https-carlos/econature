@@ -1,22 +1,20 @@
-const { DataTypes } = require('sequelize');
-const sequelize = require('../Config/database'); 
+// models/User.js
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../Config/database');
+const Compra = require('./Compra');
 
-const User = sequelize.define('User', {
-  name: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  email: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    unique: true,
-  },
-  password: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  }
+class User extends Model {}
+
+User.init({
+    name: DataTypes.STRING,
+    email: DataTypes.STRING,
+    password: DataTypes.STRING,
 }, {
-  timestamps: true,
+    sequelize,
+    modelName: 'User',
 });
+
+User.hasMany(Compra, { foreignKey: 'user_id' });
+Compra.belongsTo(User, { foreignKey: 'user_id' });
 
 module.exports = User;

@@ -41,6 +41,19 @@ table th, table td {
     border-bottom: 1px solid #ddd;
 }
 
+.input-quantidade {
+    width: 80px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.input-quantidade:focus {
+    border-color: #00A64F;
+}
+
 .botao-remover {
     background-color: #ff4d4d;
     color: white;
